@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjooq2heqbcv5"]
+
+[ext_resource type="Texture2D" uid="uid://souhjs3q5mow" path="res://assets/rules.jpg" id="1_koewo"]
+[ext_resource type="Script" path="res://scripts/Rules.gd" id="1_trj3g"]
+[ext_resource type="FontFile" uid="uid://ct60dra63g5q6" path="res://assets/lss.otf" id="3_1aerp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfjjc"]
+bg_color = Color(0.0901961, 0.262745, 0.25098, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_trj3g")
+
+[node name="Rules" type="Sprite2D" parent="."]
+position = Vector2(327, 324)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_koewo")
+
+[node name="UI" type="CanvasLayer" parent="Rules"]
+
+[node name="rulestext" type="Label" parent="Rules/UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -222.5
+offset_right = 275.0
+offset_bottom = 222.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_1aerp")
+theme_override_font_sizes/font_size = 25
+text = "Objective:
+Find all the lanterns to light up 
+the maze,
+and remove the mushroom
+blocking the maze's end.
+
+Gameplay:
+The screen will start covered in darkness.
+You'll have the maze revealed for 6 seconds 
+at the beginning to quickly navigate
+and get your bearings.
+
+Mechanics:
+Move using your arrow keys."
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Rules"]
+offset_left = 490.0
+offset_top = 630.0
+offset_right = 750.0
+offset_bottom = 792.0
+alignment = 1
+
+[node name="BackButton" type="Button" parent="Rules/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1aerp")
+theme_override_font_sizes/font_size = 47
+theme_override_styles/normal = SubResource("StyleBoxFlat_xfjjc")
+text = "Back"

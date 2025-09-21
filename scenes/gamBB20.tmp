@@ -1,0 +1,181 @@
+[gd_scene load_steps=13 format=3 uid="uid://c38ex15h3jp44"]
+
+[ext_resource type="PackedScene" uid="uid://du1mvponabdlr" path="res://scenes/player.tscn" id="1_ikjqt"]
+[ext_resource type="Texture2D" uid="uid://d2uxx1d2cl61x" path="res://assets/forest_tile_set/forest_decoration.png" id="2_j5wat"]
+[ext_resource type="Texture2D" uid="uid://ckg8kj3nnhbf" path="res://assets/forest_tile_set/ground.png" id="3_kusnj"]
+[ext_resource type="Texture2D" uid="uid://cb2ugdjso63xo" path="res://assets/forest_tile_set/pathway.png" id="4_30jdu"]
+[ext_resource type="Texture2D" uid="uid://byb0j03obk1va" path="res://assets/forest_tile_set/water.png" id="5_5qt5y"]
+[ext_resource type="Texture2D" uid="uid://b2ads8ow7ouj" path="res://assets/2maze.png" id="6_qwe4c"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_88h27"]
+distance = -44.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rau4"]
+texture = ExtResource("2_j5wat")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l4kco"]
+texture = ExtResource("3_kusnj")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ryu3"]
+texture = ExtResource("4_30jdu")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qolp1"]
+texture = ExtResource("5_5qt5y")
+
+[sub_resource type="TileSet" id="TileSet_5khm0"]
+tile_size = Vector2i(50, 50)
+sources/0 = SubResource("TileSetAtlasSource_0rau4")
+sources/1 = SubResource("TileSetAtlasSource_l4kco")
+sources/2 = SubResource("TileSetAtlasSource_6ryu3")
+sources/3 = SubResource("TileSetAtlasSource_qolp1")
+
+[node name="Game" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_ikjqt")]
+position = Vector2(460, -225)
+scale = Vector2(0.5, 0.5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(461, -180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3, 52)
+shape = SubResource("WorldBoundaryShape2D_88h27")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 1, 0, 243, 255, 1, 0, 11, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_5khm0")
+
+[node name="2Maze" type="Sprite2D" parent="."]
+position = Vector2(21, -9)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_qwe4c")

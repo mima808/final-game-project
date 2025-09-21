@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://dd6rogjpxehev"]
+
+[ext_resource type="Script" path="res://scripts/AudioManager.gd" id="1_3qytp"]
+[ext_resource type="AudioStream" uid="uid://brnw843j1gocp" path="res://assets/forest.mp3" id="2_oy5hy"]
+[ext_resource type="AudioStream" uid="uid://buux1cci4d783" path="res://assets/point.mp3" id="3_mcxma"]
+[ext_resource type="AudioStream" uid="uid://yga1e00np1da" path="res://assets/win.wav" id="4_tnmbw"]
+[ext_resource type="AudioStream" uid="uid://b5gm2o1u8pi1q" path="res://assets/click.wav" id="5_xjbem"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_3qytp")
+
+[node name="Forest" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_oy5hy")
+volume_db = -17.531
+parameters/looping = false
+
+[node name="Point" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mcxma")
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_tnmbw")
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_xjbem")

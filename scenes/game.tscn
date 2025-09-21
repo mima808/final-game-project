@@ -1,0 +1,385 @@
+[gd_scene load_steps=36 format=3 uid="uid://c38ex15h3jp44"]
+
+[ext_resource type="PackedScene" uid="uid://du1mvponabdlr" path="res://scenes/player.tscn" id="1_ikjqt"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_w1yfv"]
+[ext_resource type="Texture2D" uid="uid://csq547h3j022t" path="res://assets/lantern.png" id="2_waadt"]
+[ext_resource type="PackedScene" uid="uid://cdic8bla525b6" path="res://scenes/badmush.tscn" id="4_ed6wu"]
+[ext_resource type="Script" path="res://scripts/LanternCollectible.gd" id="4_gy4gj"]
+[ext_resource type="PackedScene" uid="uid://bl8f6qlgj46lk" path="res://scenes/verticalbadmush.tscn" id="5_8coxa"]
+[ext_resource type="PackedScene" uid="uid://btiaex16pop52" path="res://scenes/mushend.tscn" id="6_ayuiv"]
+[ext_resource type="Texture2D" uid="uid://b2ads8ow7ouj" path="res://assets/2maze.png" id="6_qwe4c"]
+[ext_resource type="Shader" path="res://scripts/game.gdshader" id="7_ge4og"]
+[ext_resource type="Script" path="res://scripts/overlay.gd" id="7_we188"]
+[ext_resource type="FontFile" uid="uid://ct60dra63g5q6" path="res://assets/lss.otf" id="11_7oeth"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3en8k"]
+size = Vector2(444.5, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4oftc"]
+size = Vector2(238, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2rnt"]
+size = Vector2(489, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0igb"]
+size = Vector2(20, 636)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqhie"]
+size = Vector2(151, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14k1j"]
+size = Vector2(304.5, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bej0"]
+size = Vector2(11, 293)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajwel"]
+size = Vector2(7, 307)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03ga8"]
+size = Vector2(11.75, 229.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kn8vo"]
+size = Vector2(635, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5mtf"]
+size = Vector2(9, 157)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rk5gp"]
+size = Vector2(157.5, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gy1ps"]
+size = Vector2(7.5, 148)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ynpt"]
+size = Vector2(75, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbd1g"]
+size = Vector2(9, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1ajb"]
+size = Vector2(85.5, 8.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5unnb"]
+size = Vector2(76, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0aeah"]
+size = Vector2(65, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xxlo"]
+size = Vector2(9, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3yxk"]
+size = Vector2(22, 26)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8o7f1"]
+texture = ExtResource("2_waadt")
+texture_region_size = Vector2i(2, 3)
+
+[sub_resource type="TileSet" id="TileSet_x68vf"]
+tile_size = Vector2i(2, 6)
+sources/0 = SubResource("TileSetAtlasSource_8o7f1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h6yax"]
+shader = ExtResource("7_ge4og")
+shader_parameter/hole_center = Vector2(0.5, 0.5)
+shader_parameter/hole_radius = 0.25
+shader_parameter/edge_feather = 0.05
+shader_parameter/overlay_alpha = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqjd3"]
+size = Vector2(141, 20)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_w1yfv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(329, 328)
+
+[node name="MazeBody" type="StaticBody2D" parent="."]
+
+[node name="2Maze" type="Sprite2D" parent="MazeBody"]
+position = Vector2(327, 324)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_qwe4c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(326.75, 99)
+shape = SubResource("RectangleShape2D_3en8k")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(215, 173.5)
+shape = SubResource("RectangleShape2D_4oftc")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(380.5, 629)
+shape = SubResource("RectangleShape2D_y2rnt")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(25, 318)
+shape = SubResource("RectangleShape2D_k0igb")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(633, 318)
+shape = SubResource("RectangleShape2D_k0igb")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(172.5, 248)
+shape = SubResource("RectangleShape2D_oqhie")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(331.75, 474)
+shape = SubResource("RectangleShape2D_14k1j")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(331.5, 253.5)
+shape = SubResource("RectangleShape2D_0bej0")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(102.5, 398.5)
+shape = SubResource("RectangleShape2D_ajwel")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(479.125, 138.25)
+shape = SubResource("RectangleShape2D_03ga8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(327, 18)
+shape = SubResource("RectangleShape2D_kn8vo")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(183.5, 396.5)
+shape = SubResource("RectangleShape2D_x5mtf")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(478.25, 548.5)
+shape = SubResource("RectangleShape2D_rk5gp")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(479.25, 470)
+shape = SubResource("RectangleShape2D_gy1ps")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(221.5, 321.5)
+shape = SubResource("RectangleShape2D_2ynpt")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(406.5, 288)
+shape = SubResource("RectangleShape2D_wbd1g")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(146.75, 549.75)
+shape = SubResource("RectangleShape2D_h1ajb")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(602, 174)
+shape = SubResource("RectangleShape2D_5unnb")
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(446, 175)
+shape = SubResource("RectangleShape2D_5unnb")
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(517, 248)
+shape = SubResource("RectangleShape2D_5unnb")
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(521, 399)
+shape = SubResource("RectangleShape2D_5unnb")
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(371, 400)
+shape = SubResource("RectangleShape2D_5unnb")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(598, 475)
+shape = SubResource("RectangleShape2D_5unnb")
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(370, 250)
+shape = SubResource("RectangleShape2D_5unnb")
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(294, 551)
+shape = SubResource("RectangleShape2D_5unnb")
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(436, 326)
+shape = SubResource("RectangleShape2D_0aeah")
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(258.5, 357.5)
+shape = SubResource("RectangleShape2D_8xxlo")
+
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(555, 359)
+shape = SubResource("RectangleShape2D_8xxlo")
+
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(257, 511)
+shape = SubResource("RectangleShape2D_8xxlo")
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(333, 588)
+shape = SubResource("RectangleShape2D_8xxlo")
+
+[node name="CollisionShape2D31" type="CollisionShape2D" parent="MazeBody"]
+position = Vector2(186, 584)
+shape = SubResource("RectangleShape2D_8xxlo")
+
+[node name="Player" parent="." instance=ExtResource("1_ikjqt")]
+position = Vector2(589, 58)
+scale = Vector2(0.5, 0.5)
+
+[node name="Lanterns1" type="Area2D" parent="." groups=["Lanterns"]]
+position = Vector2(702, 109)
+script = ExtResource("4_gy4gj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lanterns1"]
+position = Vector2(-295, -44)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_waadt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lanterns1"]
+position = Vector2(-295, -37)
+shape = SubResource("RectangleShape2D_k3yxk")
+
+[node name="Lanterns2" type="Area2D" parent="." groups=["Lanterns"]]
+position = Vector2(702, 109)
+script = ExtResource("4_gy4gj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lanterns2"]
+position = Vector2(-251, 31)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_waadt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lanterns2"]
+position = Vector2(-253, 41)
+shape = SubResource("RectangleShape2D_k3yxk")
+
+[node name="Lanterns3" type="Area2D" parent="." groups=["Lanterns"]]
+position = Vector2(702, 109)
+script = ExtResource("4_gy4gj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lanterns3"]
+position = Vector2(-482, 247)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_waadt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lanterns3"]
+position = Vector2(-482, 259)
+shape = SubResource("RectangleShape2D_k3yxk")
+
+[node name="Lanterns4" type="Area2D" parent="." groups=["Lanterns"]]
+position = Vector2(702, 109)
+script = ExtResource("4_gy4gj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lanterns4"]
+position = Vector2(-252, 407)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_waadt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lanterns4"]
+position = Vector2(-254, 416)
+shape = SubResource("RectangleShape2D_k3yxk")
+
+[node name="Lanterns5" type="Area2D" parent="." groups=["Lanterns"]]
+position = Vector2(702, 109)
+script = ExtResource("4_gy4gj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lanterns5"]
+position = Vector2(-397, 480)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_waadt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lanterns5"]
+position = Vector2(-397, 486)
+shape = SubResource("RectangleShape2D_k3yxk")
+
+[node name="Lanterns6" type="Area2D" parent="." groups=["Lanterns"]]
+position = Vector2(702, 109)
+script = ExtResource("4_gy4gj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lanterns6"]
+position = Vector2(-416, 406)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_waadt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lanterns6"]
+position = Vector2(-419, 416)
+shape = SubResource("RectangleShape2D_k3yxk")
+
+[node name="Lanterns7" type="Area2D" parent="." groups=["Lanterns"]]
+position = Vector2(702, 109)
+script = ExtResource("4_gy4gj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lanterns7"]
+position = Vector2(-334, 178)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_waadt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lanterns7"]
+position = Vector2(-334, 188)
+shape = SubResource("RectangleShape2D_k3yxk")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-1, 0)
+tile_map_data = PackedByteArray(0, 0, 1, 0, 243, 255, 1, 0, 11, 0, 0, 0, 0, 0, 32, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_x68vf")
+
+[node name="badmush" parent="." groups=["badmushes"] instance=ExtResource("4_ed6wu")]
+position = Vector2(161, 146)
+
+[node name="badmush2" parent="." groups=["badmushes"] instance=ExtResource("4_ed6wu")]
+position = Vector2(348, 601)
+
+[node name="verticalbadmush" parent="." groups=["badmushes"] instance=ExtResource("5_8coxa")]
+position = Vector2(290, 223)
+
+[node name="mushend" parent="." instance=ExtResource("6_ayuiv")]
+position = Vector2(88, 590)
+
+[node name="Overlay" type="CanvasLayer" parent="."]
+script = ExtResource("7_we188")
+
+[node name="TimerOverlayStart" type="Timer" parent="Overlay"]
+wait_time = 6.0
+one_shot = true
+
+[node name="FullscreenRect" type="ColorRect" parent="Overlay"]
+visible = false
+material = SubResource("ShaderMaterial_h6yax")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 18.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="UI"]
+layout_direction = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_top = 15.0
+offset_right = -11.0
+offset_bottom = 38.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("11_7oeth")
+text = "Score: 0 / 5"
+vertical_alignment = 1
+
+[node name="GameEnd" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameEnd"]
+position = Vector2(85, 673)
+shape = SubResource("RectangleShape2D_cqjd3")
+
+[connection signal="body_entered" from="GameEnd" to="Player" method="_on_game_end_body_entered"]
